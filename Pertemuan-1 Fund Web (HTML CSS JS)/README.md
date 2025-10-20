@@ -200,3 +200,23 @@ npm -v
 ## Exercise (HTML, CSS & JS)
 
 Latihan ini optional boleh dikerjakan boleh tidak buat temen2 latihan ya.
+
+1. Coba temen2 latihan membuat website pribadi atau company profile.
+
+2. atau temen2 bisa coba buat website to do list.
+
+3. lalu upload ke github. caranya : https://www.youtube.com/watch?v=JB7YD7OKm5g
+
+## Source
+
+1. HTML Documentation : https://developer.mozilla.org/en-US/docs/Web/HTML
+
+2. W3Schools HTML : https://www.w3schools.com/html/html_intro.asp
+
+3. CSS Documentation : https://developer.mozilla.org/en-US/docs/Web/CSS
+
+4. W3Schools CSS : http://w3schools.com/cssref/index.php
+
+5. Javascript Documentation : https://developer.mozilla.org/en-US/docs/Web/JavaScript
+
+6. W3Schools Javascript : https://www.w3schools.com/jsrEF/default.asp
