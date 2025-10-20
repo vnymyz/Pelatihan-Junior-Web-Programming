@@ -130,6 +130,8 @@ Browser (Client) ←→ Internet ←→ Server**
 
 ### 1. Install Visual Studio Code
 
+Video Tutorial : https://www.youtube.com/watch?v=DoLYVXR9SSc
+
 Langkah:
 
 - Kunjungi https://code.visualstudio.com/
@@ -156,6 +158,8 @@ Extension yang disarankan:
 
 ### 2. Install Git
 
+Video Tutorial : https://www.youtube.com/watch?v=t2-l3WvWvqg
+
 Git digunakan untuk mengelola versi kode (version control).
 
 Langkah:
@@ -173,6 +177,8 @@ git --version
 ```
 
 ### 3. Install Node JS
+
+Video Tutorial : https://www.youtube.com/watch?v=lt5D2EWZMN0
 
 Node.js digunakan untuk menjalankan JavaScript di luar browser (misalnya di backend).
 
