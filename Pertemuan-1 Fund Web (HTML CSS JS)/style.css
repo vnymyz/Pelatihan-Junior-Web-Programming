@@ -1,0 +1,151 @@
+/* --- Reset & Font --- */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f8f9fa;
+  color: #333;
+  transition: all 0.3s ease;
+  line-height: 1.6;
+}
+
+.dark-mode {
+  background-color: #121212;
+  color: #f1f1f1;
+}
+
+/* --- Navbar --- */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #007bff;
+  color: white;
+  padding: 1rem 2rem;
+}
+
+#theme-toggle {
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 6px;
+  background: white;
+  color: #007bff;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+#theme-toggle:hover {
+  background: #0056b3;
+  color: white;
+}
+
+/* --- Main Section --- */
+main {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.highlight {
+  color: #007bff;
+}
+
+button {
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 6px;
+  background: #007bff;
+  color: white;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #0056b3;
+}
+
+/* --- About Section --- */
+.about,
+.fun-fact {
+  margin-top: 2rem;
+  padding: 1.5rem;
+  max-width: 600px;
+  margin-inline: auto;
+  background: rgba(0, 123, 255, 0.1);
+  border-radius: 10px;
+}
+
+.dark-mode .about,
+.dark-mode .fun-fact {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* ====== VIDEO SECTION ====== */
+.videos-section {
+  text-align: center;
+  padding: 2rem 1rem;
+}
+
+.videos-section h2 {
+  font-size: 1.8rem;
+  color: #1e40af;
+  margin-bottom: 3rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.videos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto; /* <- ini yang bikin center */
+}
+
+.video-card {
+  background: white;
+  border-radius: 1rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding-bottom: 1rem;
+}
+
+.video-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+iframe {
+  width: 100%;
+  height: 200px;
+  border: none;
+}
+
+.video-card h3 {
+  text-align: center;
+  color: #1e40af;
+  margin-top: 0.8rem;
+}
+
+.video-card p {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #475569;
+  padding: 0 1rem;
+}
+
+/* --- Footer --- */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #007bff;
+  color: white;
+  margin-top: 2rem;
+}
