@@ -16,7 +16,7 @@ Pada akhir sesi ini peserta diharapkan dapat:
 
 ### A. Instalasi Tools
 
-1. ** XAMPP / Laragon **
+1. **XAMPP / Laragon**
 
 - Install Laragon atau XAMPP :
   - Laragon (untuk project disimpan dalam folder `\www`) : https://laragon.org/download - Video Link -> https://www.youtube.com/watch?v=61J-8HiV5tU&t=22s
