@@ -8,7 +8,7 @@ include __DIR__ . '/_sidebar_users.php';
 <main class="flex-1 p-8">
   <div class="max-w-3xl mx-auto">
     <h1 class="text-2xl font-semibold">User Dashboard</h1>
-    <p class="text-gray-600">Halo, <?= e(current_user_name()) ?>. Ini halaman profil sederhana.</p>
+    <p class="text-gray-600">Halo, <?= e(current_user_name()) ?>. Ini halaman user</p>
     <div class="mt-6 bg-white p-6 rounded shadow">
       <p>Email: <?= e($_SESSION['user_email'] ?? '') ?></p>
       <p>Role: <?= e(current_user_role()) ?></p>
