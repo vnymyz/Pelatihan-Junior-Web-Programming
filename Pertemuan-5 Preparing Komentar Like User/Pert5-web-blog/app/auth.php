@@ -2,6 +2,7 @@
 // app/Auth.php
 // Simple auth helper for page protection.
 // Usage: include __DIR__ . '/../app/Auth.php'; require_login(); or require_admin();
+// middleware
 
 if (session_status() === PHP_SESSION_NONE) {
     session_start();

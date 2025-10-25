@@ -4,12 +4,15 @@ require_once __DIR__ . '/../../app/auth.php';
 require_once __DIR__ . '/../../app/functions.php';
 require_once __DIR__ . '/../../config/config.php';
 
+// kalau masuk halaman ini berarti session start
 if (session_status() === PHP_SESSION_NONE) session_start();
 require_login();
 
 $user_id = (int)($_SESSION['user_id'] ?? 0);
 
 // ambil semua artikel yang di-like user (lengkap)
+// a = articles table
+// l = table likes
 $stmt = $conn->prepare("
   SELECT a.id, a.title, a.slug, a.featured_image, a.content, a.created_at, l.created_at AS liked_at
   FROM likes l
@@ -22,6 +25,7 @@ $stmt->execute();
 $liked = $stmt->get_result()->fetch_all(MYSQLI_ASSOC);
 $stmt->close();
 
+// ni adalha layout
 include __DIR__ . '/_header_users.php';
 include __DIR__ . '/_sidebar_users.php';
 ?>
@@ -29,12 +33,18 @@ include __DIR__ . '/_sidebar_users.php';
 <main class="flex-1 p-8">
   <div class="max-w-4xl mx-auto">
     <h1 class="text-2xl font-semibold mb-2">Postingan yang Kamu Sukai</h1>
-    <p class="text-gray-600 mb-6">Daftar artikel yang pernah kamu beri <strong>Like</strong>. Kamu bisa membatalkan like dari sini.</p>
-
+    <p class="
+  
+    <!-- conditional statement -->
+     <!-- if else switch case -->
     <?php if (empty($liked)): ?>
+      <!-- kalau like kita kosong maka dia gk akan nampilin apa2 -->
       <div class="bg-white p-6 rounded shadow text-gray-600">Kamu belum menyukai artikel apapun.</div>
     <?php else: ?>
+      <!-- kalau misal kita nge like sesuatu -->
       <div class="space-y-4">
+        <!-- looping statement buat nampilin semua data -->
+         <!-- for while cuman php adanya foreach -->
         <?php foreach ($liked as $a): ?>
           <div class="bg-white rounded-lg shadow p-4 flex flex-col md:flex-row md:justify-between md:items-start">
             <div class="md:flex-1">

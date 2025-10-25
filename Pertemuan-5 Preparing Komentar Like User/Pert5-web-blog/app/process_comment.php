@@ -26,8 +26,10 @@ if (!verify_csrf()) {
 }
 
 $user_id = (int)$_SESSION['user_id'];
+// untuk menambahkan komentar
 $action = $_POST['action'] ?? 'create';
 
+// buat menghapus komentar
 if ($action === 'delete') {
   $delete_id = (int)($_POST['delete_id'] ?? 0);
   if ($delete_id > 0) {
@@ -38,6 +40,7 @@ if ($action === 'delete') {
     $res = $stmt->get_result()->fetch_assoc();
     $stmt->close();
 
+    // kalau misal kita login sebagai user maka kita akan delete by id
     if ($res && (int)$res['user_id'] === $user_id) {
       $del = $conn->prepare("DELETE FROM comments WHERE id = ?");
       $del->bind_param("i", $delete_id);
@@ -50,6 +53,7 @@ if ($action === 'delete') {
 }
 
 // create
+// setiap artkel ada input komentar
 $article_id = (int)($_POST['article_id'] ?? 0);
 $body = trim($_POST['body'] ?? '');
 
@@ -59,6 +63,7 @@ if ($article_id <= 0 || $body === '') {
 }
 
 // limit panjang
+// tidak bisa komentar lebih dari jumlah string
 if (mb_strlen($body) > 2000) $body = mb_substr($body, 0, 2000);
 
 // pastikan artikel ada
@@ -72,8 +77,9 @@ if (!$r) {
   exit;
 }
 
-// insert
+// insert komentar atau isi komentar
 $ins = $conn->prepare("INSERT INTO comments (article_id, user_id, body) VALUES (?, ?, ?)");
+// dia butuh artikel, butuh user yg login atau admin dan butuh body buat isi komentar
 $ins->bind_param("iis", $article_id, $user_id, $body);
 $ins->execute();
 $ins->close();

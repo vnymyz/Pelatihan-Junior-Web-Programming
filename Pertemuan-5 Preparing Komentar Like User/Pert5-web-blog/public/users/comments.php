@@ -4,12 +4,20 @@ require_once __DIR__ . '/../../app/auth.php';
 require_once __DIR__ . '/../../app/functions.php';
 require_once __DIR__ . '/../../config/config.php';
 
+// kalau misal kita masuk ke sesi tersebut berarti sessiond dimulai
 if (session_status() === PHP_SESSION_NONE) session_start();
+// wajib login kalau mau dapet akses dashboard tersebut
 require_login();
 
+// session login user nya
 $user_id = (int)$_SESSION['user_id'];
 
 // ambil komentar user beserta judul post
+// disaat user sudah input komentar di postingan user bisa liat dia komentar mana nih
+// table comments = c
+// table articles = a
+// ngegabungin 2 tabel komentar dan artikel
+// sama2 membutuhkan dimana user
 $stmt = $conn->prepare("
   SELECT c.id, c.body, c.created_at, a.id AS article_id, a.title, a.slug
   FROM comments c
@@ -30,9 +38,12 @@ include __DIR__ . '/_sidebar_users.php';
   <div class="max-w-4xl mx-auto">
     <h1 class="text-2xl font-semibold mb-4">Komentar Saya</h1>
 
+    <!-- kalau misal kita belum komentar sama sekali -->
     <?php if (empty($myComments)): ?>
+      <!-- nampilin ini -->
       <div class="bg-white p-6 rounded shadow text-gray-600">Kamu belum menulis komentar apa pun.</div>
     <?php else: ?>
+      <!-- dia bakalan nampilin komentar dan komentar itu sudah di join atau digabung -->
       <div class="space-y-4">
         <?php foreach ($myComments as $c): ?>
           <div class="bg-white p-4 rounded shadow">
@@ -46,6 +57,7 @@ include __DIR__ . '/_sidebar_users.php';
               <form method="post" action="/public/process_comment.php">
                 <input type="hidden" name="_csrf_token" value="<?= e(csrf_token()) ?>">
                 <input type="hidden" name="delete_id" value="<?= e($c['id']) ?>">
+                <!-- untuk menghapus komentar -->
                 <button type="submit" name="action" value="delete" class="text-sm text-red-500">Hapus</button>
               </form>
             </div>

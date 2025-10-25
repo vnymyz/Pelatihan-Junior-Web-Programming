@@ -1,9 +1,11 @@
 <?php
 // app/functions.php
+// helper
 if (!function_exists('e')) {
   function e($s){ return htmlspecialchars($s ?? '', ENT_QUOTES, 'UTF-8'); }
 }
 
+// buat aturan slug
 if (!function_exists('slugify')) {
   function slugify($text) {
     $text = preg_replace('~[^\pL\d]+~u', '-', $text);
